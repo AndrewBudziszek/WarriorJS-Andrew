@@ -1,7 +1,9 @@
 class Player {
   playTurn(warrior) {
     // Cool code goes here.
-    if (warrior.health() < this.health) {
+    if (warrior.feel().isUnit() && warrior.feel().getUnit().isFriendly()) {
+      warrior.rescue()
+    } else if (warrior.health() < this.health) {
       //Being attacked
       if (warrior.feel().isUnit()) {
         warrior.attack()
