@@ -1,7 +1,14 @@
 class Player {
   playTurn(warrior) {
     // Cool code goes here.
-    if (warrior.health() < 12) {
+    if (warrior.health() < this.health) {
+      //Being attacked
+      if (warrior.feel().isUnit()) {
+        warrior.attack()
+      } else {
+        warrior.walk()
+      }
+    } else if (warrior.health() < 16) {
       if (warrior.feel().isUnit()) {
         warrior.walk('backward');
       } else {
@@ -12,5 +19,6 @@ class Player {
     } else {
       warrior.walk();
     }
+    this.health = warrior.health()
   }
 }
